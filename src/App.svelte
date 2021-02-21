@@ -46,7 +46,7 @@
     list-style: none;
     outline: none;
     border: none;
-    font-family: fira code;
+    font-family: PingFang SC Medium, fira code, monospace;
     box-sizing: border-box;
   }
   :global(button) {

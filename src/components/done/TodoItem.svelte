@@ -22,7 +22,7 @@
 
 <div class="todo-item">
   <input type="checkbox" checked={todo.isDone} on:click={() => onClickCheckBox(todo)} />
-  <div class="content">{todo.content ?? ''}</div>
+  <div class="content">{todo.content}</div>
   <button class="delete" on:click={() => onClickDelete(todo)}>Delete</button>
 </div>
 

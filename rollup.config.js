@@ -79,11 +79,15 @@ export default {
     production && terser(),
 
     html({
+      title: 'Svelte Todo App',
       publicPath: production ? '/svelte/todo/' : '/',
       meta: [
         {
 					name: 'viewport',
-          content: 'width=device-width, initial-scale=1.0',
+          content: 'width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimum-scale=1',
+        },
+        {
+          charset: 'utf-8',
         },
       ],
     }),
