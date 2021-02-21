@@ -78,7 +78,9 @@ export default {
 		// instead of npm run dev), minify
 		production && terser(),
 
-		production && html()
+		html({
+			publicPath: production ? '/svelte/todo/' : '/'
+		})
 	],
 	watch: {
 		clearScreen: false
