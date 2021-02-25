@@ -31,7 +31,7 @@
     todoToAdd = '';
   };
   
-  const onPressEnter = (event: KeyboardEvent) => {
+  const onKeyUp = (event: KeyboardEvent) => {
     if (event.key.toLowerCase() !== 'enter') {
       return
     }
@@ -44,7 +44,7 @@
 <div class="todo-adder">
   <h1 class="title">Todo Adder</h1>
   <div class="edition">
-    <input type="text" bind:value={todoToAdd} placeholder="请输入待办事项" on:keyup={onPressEnter} />
+    <input type="text" bind:value={todoToAdd} placeholder="请输入待办事项" on:keyup={onKeyUp} />
     <button class="submit" on:click={onClickSubmit}>Add</button>
   </div>
 </div>

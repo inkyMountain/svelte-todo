@@ -4,15 +4,17 @@
   /**
    * TodoList 中的某个 todo item.
    * consists of:
-   * - isDone Checkbox.
-   * - Todo content.
+   * - exproted ITodoItem prop
+   * 
+   * - <input type="checkBox"> todo.isDone
+   * - Todo content display
    * - "Delete" button.
    */
 </script>
 
 <div class="todo-item">
-  <input type="checkbox" />
-  <div class="content" />
+  <input type="checkbox"/>
+  <div class="content"></div>
   <button class="delete">Delete</button>
 </div>
 

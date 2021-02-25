@@ -2,21 +2,10 @@
   /**
    * Todo 应用的根组件
    * consists of:
-   * - App 标题：Svelte Todo
-   *    ** inner state **
-   *    - appName & {appName}
-   *    - $: techStack + name
-   *
-   *    ** store value **
-   *    - readable('', set => {}) & subscribe
-   *    - readable & $
-   *    - readable & derived
-   *    - readable & {# await}
+   * - App name
    * - TodoAdder & TodoList 组件。
    * - 从 store 引入 doneTodos & undoneTodos。
    */
-  // import TodoAdder from './components/needCompletion/TodoAdder.svelte';
-  // import TodoList from './components/needCompletion/TodoList.svelte';
   import TodoAdder from './components/done/TodoAdder.svelte';
   import TodoList from './components/done/TodoList.svelte';
   import { appNamePromise, doneTodos, undoneTodos } from './store';
@@ -25,11 +14,9 @@
 <main id="app">
   <h1 class="app-name">
     {#await $appNamePromise}
-      fetching app name...
+      fetching...
     {:then res}
       {res}
-    {:catch error}
-      Some error happens: {error}
     {/await}
   </h1>
   <TodoAdder />

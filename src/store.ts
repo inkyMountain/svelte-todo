@@ -1,4 +1,4 @@
-import { derived, writable } from 'svelte/store';
+import { derived, readable, writable } from 'svelte/store';
 
 /**
  * 功能：给用户提供输入框，用于添加新的 Todo.
@@ -15,7 +15,7 @@ export const getIncrementalCount = (() => {
 })();
 
 export const completeTodos = writable<ITodoItem[]>([], (set) => {
-  const undoneTodos: ITodoItem[] = [
+  set([
     {
       content: '这周刷两道LeetCode',
       id: getIncrementalCount(),
@@ -26,8 +26,6 @@ export const completeTodos = writable<ITodoItem[]>([], (set) => {
       id: getIncrementalCount(),
       isDone: false,
     },
-  ];
-  const doneTodos: ITodoItem[] = [
     {
       content: '今天背20个单词',
       id: getIncrementalCount(),
@@ -38,11 +36,24 @@ export const completeTodos = writable<ITodoItem[]>([], (set) => {
       id: getIncrementalCount(),
       isDone: true,
     },
-  ];
-  set([...doneTodos, ...undoneTodos]);
+  ]);
 });
 
-export const doneTodos = derived(completeTodos, ($todos) => $todos.filter((todo) => todo.isDone));
-export const undoneTodos = derived(completeTodos, ($todos) =>
-  $todos.filter((todo) => !todo.isDone)
-);
+export const doneTodos = derived(completeTodos, (todos) => {
+  return todos.filter((todo) => todo.isDone);
+});
+export const undoneTodos = derived(completeTodos, (todos) => {
+  return todos.filter((todo) => !todo.isDone);
+});
+
+const fetchAppName = () => {
+  return new Promise<string>((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Svelte Todo');
+    }, 2000);
+  });
+};
+
+export const appNamePromise = readable(Promise.resolve(''), (set) => {
+  set(fetchAppName());
+});

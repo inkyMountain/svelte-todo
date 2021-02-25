@@ -3,9 +3,9 @@
    * 功能：给用户提供输入框，用于添加新的 Todo.
    *
    * consists of:
-   * - input 输入框
-   * - 添加按钮
-   * - 回车添加 Todo
+   * - title: Todo Adder
+   * - div.edition area: input tag & Add button
+   * - 回车事件监听，添加 Todo
    */
 </script>
 
